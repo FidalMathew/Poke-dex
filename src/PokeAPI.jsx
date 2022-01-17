@@ -5,13 +5,24 @@ export default function PokeAPI() {
   const [Find, setFind] = useState("pikachu");
   const [Img, setImg] = useState("");
   const [Type, setType] = useState("");
+  const [disName, setdisName] = useState("");
+
 
   useEffect(() => {
     async function getData() {
-      let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${Find}`);
-      console.log(res);
-      setImg(res.data.sprites.front_default);
-      setType(res.data.types[0].type.name);
+
+      try {
+
+        let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${Find}`);
+        setImg(res.data.sprites.front_default);
+        setType(res.data.types[0].type.name);
+        setdisName(Find);
+
+      } catch (error) {
+
+        alert("pokemon doesn't exist");
+      }
+
     }
 
     getData();
@@ -31,7 +42,7 @@ export default function PokeAPI() {
       <div className="back">
         <div className="card">
           <img src={`${Img}`} alt="" />
-          <div className="name">{Find.toUpperCase()}</div>
+          <div className="name">{disName.toUpperCase()}</div>
 
           <div className="type">{Type}</div>
 
