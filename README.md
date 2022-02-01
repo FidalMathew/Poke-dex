@@ -1,10 +1,11 @@
-# Getting Started with Create React App
+# Pokedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app uses pokeapi to fetch all the data regarding pokemon.
+The user can search the pokemon and gets it's picture and type as the result.
 
-## Available Scripts
+## Run the project locally
 
-In the project directory, you can run:
+In the project directory, first run:
 
 ### `npm install`
 
