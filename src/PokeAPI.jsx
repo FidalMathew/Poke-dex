@@ -12,8 +12,8 @@ export default function PokeAPI() {
     async function getData() {
 
       try {
-
-        let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${Find}`);
+        let searchQuery = Find.toLowerCase();
+        let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchQuery}`);
         setImg(res.data.sprites.front_default);
         setType(res.data.types[0].type.name);
         setdisName(Find);
