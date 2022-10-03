@@ -56,7 +56,8 @@ export default function PokeAPI() {
 
           <input type="text" onChange={Typename} value={name} />
 
-          <button className="searchBtn" onClick={Search}>Search</button>
+          {/* <button className="searchBtn" onClick={Search}>Search</button> */}
+          <button class="btn btn-round b-level-1 b-type-4" onClick={Search}>Search</button>
         </div>
       </div>
     </>
