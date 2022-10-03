@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from 'sweetalert2'
 import axios from "axios";
 export default function PokeAPI() {
   const [name, setname] = useState("");
@@ -6,11 +7,11 @@ export default function PokeAPI() {
   const [Img, setImg] = useState("");
   const [Type, setType] = useState("");
   const [disName, setdisName] = useState("");
+  const [loading, setLoading] = useState(false)
 
 
   useEffect(() => {
     async function getData() {
-
       try {
         let searchQuery = Find.toLowerCase();
         let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchQuery}`);
@@ -20,7 +21,14 @@ export default function PokeAPI() {
 
       } catch (error) {
 
-        alert("pokemon doesn't exist");
+        Swal.fire({
+          // icon: 'error',
+          title: 'Oops...',
+          imageUrl: 'https://cdn-icons-png.flaticon.com/512/188/188987.png',
+          imageHeight: '100',
+          imageWidth: '100',
+          text: 'Pokemon not found!',
+        })
       }
 
     }
@@ -48,7 +56,7 @@ export default function PokeAPI() {
 
           <input type="text" onChange={Typename} value={name} />
 
-          <button onClick={Search}>Search</button>
+          <button className="searchBtn" onClick={Search}>Search</button>
         </div>
       </div>
     </>
