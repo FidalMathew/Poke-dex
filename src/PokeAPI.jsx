@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Swal from 'sweetalert2'
 import axios from "axios";
+import Spinner from "./Spinner";
 export default function PokeAPI() {
   const [name, setname] = useState("");
   const [Find, setFind] = useState("pikachu");
   const [Img, setImg] = useState("");
   const [Type, setType] = useState("");
   const [disName, setdisName] = useState("");
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -14,13 +16,15 @@ export default function PokeAPI() {
 
       try {
         let searchQuery = Find.toLowerCase();
+        setLoading(true);
         let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchQuery}`);
         setImg(res.data.sprites.front_default);
         setType(res.data.types[0].type.name);
         setdisName(Find);
+        setLoading(false);
 
       } catch (error) {
-
+        setLoading(false);
         Swal.fire({
           // icon: 'error',
           title: 'Oops...',
@@ -60,6 +64,8 @@ export default function PokeAPI() {
           <button class="btn btn-round b-level-1 b-type-4" onClick={Search}>Search</button>
         </div>
       </div>
+
+      {loading && <div id="cover-spin"><Spinner /></div>}
     </>
   );
 }
