@@ -7,11 +7,11 @@ export default function PokeAPI() {
   const [Img, setImg] = useState("");
   const [Type, setType] = useState("");
   const [disName, setdisName] = useState("");
-  const [loading, setLoading] = useState(false)
 
 
   useEffect(() => {
     async function getData() {
+
       try {
         let searchQuery = Find.toLowerCase();
         let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchQuery}`);
@@ -27,7 +27,7 @@ export default function PokeAPI() {
           imageUrl: 'https://cdn-icons-png.flaticon.com/512/188/188987.png',
           imageHeight: '100',
           imageWidth: '100',
-          text: 'Pokemon not found!',
+          text: 'Invalid Pokemon name!',
         })
       }
 
