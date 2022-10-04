@@ -8,7 +8,7 @@ Steps to follow
 
 git clone https://github.com/[YOUR_GITHUB_USERNAME]/[REPO_NAME].git
 
-## 2. Installing all npm packages
+## 3. Installing all npm packages
 
 Navigate to the directory and run the following code. This will install all the dependencies you need.
 The project has been created using yarn package manager
