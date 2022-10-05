@@ -4,7 +4,6 @@ import Box from '@material-ui/core/Box';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Switch from '@material-ui/core/Switch';
-import { Checkbox } from '@material-ui/core';
 import React from 'react';
 
 
