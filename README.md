@@ -9,7 +9,7 @@ The user can search the pokemon and gets it's picture and type as the result.
 
 In the project directory, first run:
 
-### `npm install`
+### `npm install` or `yarn install`
 
 Install all the dependancies required for the project.
 
